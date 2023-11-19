@@ -30,10 +30,6 @@ body {
   font-family: system-ui;
 }
 
-figure {
-  height: 100%;
-}
-
 img, svg, video {
   display: block;
   max-width: 100%;
