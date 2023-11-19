@@ -1,4 +1,4 @@
-![MB Logo](./src/assets/images/logo/mb-logo.svg)
+![MB Logo](./src/assets/images/logos/mb-logo.svg)
 
 # Mason Bennett Applications
 
