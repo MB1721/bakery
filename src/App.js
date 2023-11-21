@@ -16,7 +16,6 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout pages={pages} linkClassName="pageLink"/>}>
           <Route index element={<Home />} />
-          {/* {routes} */}
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="terms" element={<Terms />} />
@@ -26,7 +25,3 @@ export default function App() {
     </BrowserRouter>
   );
 }
-
-{/* <div id="app">
-        <HomeComponent/>
-      </div> */}
