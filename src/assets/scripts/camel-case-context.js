@@ -1,5 +1,5 @@
 function camelCaseContext(path, extList = ['png','jpeg','jpg','svg','gif','tiff','raw']) { // camel case context keys
-  extRegexStr = extList.reduce((str, ext) => str + ext + '|','\\.(');
+  let extRegexStr = extList.reduce((str, ext) => str + ext + '|','\\.(');
   extRegexStr = extRegexStr.replace(/\|$/, '');
   extRegexStr += ')$';
   
