@@ -10,6 +10,6 @@ module.exports = merge(common, {
     static: path.join(__dirname, 'public'),
   },
   plugins: [
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
   ]
 });
