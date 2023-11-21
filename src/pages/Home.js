@@ -4,7 +4,7 @@ import HomeComponent from '../components/HomeComponent/HomeComponent';
 
 export default function Home() {
   return (
-    <div className="home">
+    <div id="home">
       <HomeComponent/>
     </div>
   );
