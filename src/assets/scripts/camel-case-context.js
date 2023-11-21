@@ -1,5 +1,9 @@
-function camelCaseFile(path) {
-  const imgRegex = /.(png|jpeg|jpg|svg|gif|tiff|raw)$/gi; // capture image extention
+function camelCaseContext(path, extList = ['png','jpeg','jpg','svg','gif','tiff','raw']) { // camel case context keys
+  extRegexStr = extList.reduce((str, ext) => str + ext + '|','\\.(');
+  extRegexStr = extRegexStr.replace(/\|$/, '');
+  extRegexStr += ')$';
+  
+  const imgRegex = new RegExp(extRegexStr, 'gi'); // capture image extention
   const pathRegex = /.\//; // capture path
   const wordBreakRegex = /-\w/g; // capture word break
   
