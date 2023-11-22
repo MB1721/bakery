@@ -1,13 +1,19 @@
 import React from 'react';
 import { Outlet, Link } from "react-router-dom";
 import './Layout.css';
+import KeyList from '../../assets/scripts/key-list';
 
 export default function Layout({ pages, linkClassName }) {
-  const home = <li className={linkClassName}><Link to="/">Home</Link></li>;
-
-  let linkComponents = pages.map(link => {
-    link = link.toLowerCase();
-    return <li className={linkClassName}><Link to={'/' + link}>{link.replace(link[0], link[0].toUpperCase())}</Link></li>
+  let keyList = new KeyList();
+  
+  const home = <li className={linkClassName} key={keyList.generateKey('home')}><Link to="/">Home</Link></li>;
+  let linkComponents = pages.map(page => {
+    page = page.toLowerCase();
+    return (
+      <li className={linkClassName} key={keyList.generateKey(page)}>
+        <Link to={'/' + page}>{page.replace(page[0], page[0].toUpperCase())}</Link>
+      </li>
+    );
   });
   linkComponents.unshift(home);
   
