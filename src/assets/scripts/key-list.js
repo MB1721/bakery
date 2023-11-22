@@ -1,4 +1,4 @@
-export default class keyList {
+export default class KeyList {
   constructor(newList = []) {
     this.keys = {};
     this.numKeys = 0;
