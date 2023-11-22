@@ -22,7 +22,19 @@
   margin-left: 2rem;
   padding: 0.25rem 0.5rem;
   background-color: hsl(120, 50%, 50%);
+  box-shadow: inset 0px 0px 8px 1px hsl(120, 20%, 15%);
+}
+
+.pageLink:hover {
   box-shadow: inset 0px 0px 8px 3px hsl(120, 20%, 15%);
+}
+
+.pageLink:active {
+  border: 1px solid orange;
+}
+
+.pageLink.home {
+  order: -1;
 }
 
 .pageLink a {

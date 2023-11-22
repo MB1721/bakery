@@ -7,11 +7,17 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Error404 from './pages/Error404';
 import Terms from './pages/Terms';
+import camelCaseContext from './assets/scripts/camel-case-context';
 
 export default function App() {
-  // TODO: Dynamically create this array using require context and camelCaseContext
-  const pages = ['about', 'contact', 'terms'];
-  
+  let pages = [];
+  const pagesDir = require.context('./pages', true, /\.(js|ts|tsx|jsx)$/);
+  pagesDir.keys().forEach(key => {
+    const {casedFileName} = camelCaseContext(key, ['js', 'ts', 'tsx', 'jsx']);
+    pages.push(casedFileName.toLowerCase());
+  });
+  pages.splice(pages.indexOf('error404'), 1);
+
   return (
     <BrowserRouter>
       <Routes>

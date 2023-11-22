@@ -1,4 +1,4 @@
-function camelCaseContext(path, pascalCase = false, extList = ['png','jpeg','jpg','svg','gif','tiff','raw']) { // camel case context keys
+export default function camelCaseContext(path, extList = ['png','jpeg','jpg','svg','gif','tiff','raw'], pascalCase = false) { // camel case context keys
   let extRegexStr = extList.reduce((str, ext) => str + ext + '|','\\.(');
   extRegexStr = extRegexStr.replace(/\|$/, '');
   extRegexStr += ')$';
@@ -9,10 +9,11 @@ function camelCaseContext(path, pascalCase = false, extList = ['png','jpeg','jpg
   
   const pathIdx = path.search(pathRegex);
   const extIdx = path.search(imgRegex);
-  let fileName = path.slice(pathIdx+2, extIdx) // retrieve file name without path and extension
-  if (pascalCase) fileName = fileName.replace(fileName[0], fileName[0].toUpperCase());
+  let casedFileName = path.slice(pathIdx+2, extIdx) // retrieve file name without path and extension
+  if (pascalCase) casedFileName = casedFileName.replace(casedFileName[0], casedFileName[0].toUpperCase());
+  const fileStr = casedFileName.replace(/-/g, ' ');
   
-  const wordBreaks = fileName.match(wordBreakRegex); // return an array of hyphenated chars
+  const wordBreaks = casedFileName.match(wordBreakRegex); // return an array of hyphenated chars
   if (wordBreaks) { // process file name if hyphens exist
     // Create an array from the hyphenated chars. 
     // Replace with capital chars and erase hyphens.
@@ -20,13 +21,13 @@ function camelCaseContext(path, pascalCase = false, extList = ['png','jpeg','jpg
     let replacementIdx = 0; // track next letter to replace
     
     // replace hyphenated instances with capital chars
-    for (let i = 0; i < fileName.length - 1; i++) { 
-      const testSubStr = fileName[i] + fileName[i + 1]; // analyze a pair of chars
+    for (let i = 0; i < casedFileName.length - 1; i++) { 
+      const testSubStr = casedFileName[i] + casedFileName[i + 1]; // analyze a pair of chars
       if (wordBreakRegex.test(testSubStr)) {
         // modify file name
-        fileName = fileName.replace(testSubStr, replacements[replacementIdx++]);
+        casedFileName = casedFileName.replace(testSubStr, replacements[replacementIdx++]);
       }
     }
   }
-  return fileName;
+  return {casedFileName, fileStr};
 }
