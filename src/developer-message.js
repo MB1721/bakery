@@ -1,7 +1,7 @@
 export default function developerMessage() {
   const steps = [
     '1. /package.json\n\tEdit "name", "description", and "author".\n',
-    '2. /webpack.common.js\n\tEdit module.plugins.HtmlWebpackPlugin.title\n',
+    '2. /webpack.common.js\n\tEdit module.plugins.HtmlWebpackPlugin.title\n\tEdit module.plugins.FaviconsWebpackPlugin.logo\n',
     '2. /src/pages/Home.js\n\tDelete Ln 3 and Ln 8.\n',
     '3. /src/components/\n\tDelete HomeComponent/ and Sample/.\n',
     '4. /src/App.js\n\tAdjust imports on Ln 6 - 10 to reflect /src/pages/.\n\tAdjust routes on Ln 25 - 29 to reflect /src/pages/.\n',
