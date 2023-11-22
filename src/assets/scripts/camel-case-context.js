@@ -1,4 +1,4 @@
-function camelCaseContext(path, extList = ['png','jpeg','jpg','svg','gif','tiff','raw']) { // camel case context keys
+function camelCaseContext(path, pascalCase = false, extList = ['png','jpeg','jpg','svg','gif','tiff','raw']) { // camel case context keys
   let extRegexStr = extList.reduce((str, ext) => str + ext + '|','\\.(');
   extRegexStr = extRegexStr.replace(/\|$/, '');
   extRegexStr += ')$';
@@ -10,6 +10,7 @@ function camelCaseContext(path, extList = ['png','jpeg','jpg','svg','gif','tiff'
   const pathIdx = path.search(pathRegex);
   const extIdx = path.search(imgRegex);
   let fileName = path.slice(pathIdx+2, extIdx) // retrieve file name without path and extension
+  if (pascalCase) fileName = fileName.replace(fileName[0], fileName[0].toUpperCase());
   
   const wordBreaks = fileName.match(wordBreakRegex); // return an array of hyphenated chars
   if (wordBreaks) { // process file name if hyphens exist

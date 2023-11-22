@@ -9,6 +9,7 @@ import Error404 from './pages/Error404';
 import Terms from './pages/Terms';
 
 export default function App() {
+  // TODO: Dynamically create this array using require context and camelCaseContext
   const pages = ['about', 'contact', 'terms'];
   
   return (
