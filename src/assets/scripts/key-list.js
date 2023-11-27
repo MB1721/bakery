@@ -1,7 +1,8 @@
 export default class KeyList {
-  #keys = {numKeys: 0};
+  #keys = {};
+  #numKeys = 0;
   constructor(newList = []) {
-    newList.forEach(definedKey => this.ammendList(definedKey));
+    newList.forEach(definedKey => this.#ammendList(definedKey));
   }
 
   get list() {
@@ -9,18 +10,18 @@ export default class KeyList {
   }
 
   get size() {
-    return this.#keys.numKeys;
+    return this.#numKeys;
   }
 
-  ammendList(newKey) {
+  #ammendList(newKey) {
     this.#keys[newKey] = {
       instances: [newKey],
       count: 1
     };
-    this.#keys.numKeys++;
+    this.#numKeys++;
   }
 
-  toHex(value) {
+  #toHex(value) {
     let hexArr = [];
     let remainders = [];
     let power = 0;
@@ -57,7 +58,7 @@ export default class KeyList {
     return hexStr;
   }
 
-  unicodeKey(repeatKey) {
+  #unicodeKey(repeatKey) {
     const unicodeSeq = repeatKey.split('').reduce((intStr, ch) => intStr + ch.codePointAt(0).toString(), '');
     return Number(unicodeSeq);
   }
@@ -66,11 +67,11 @@ export default class KeyList {
     unique = unique.toString();
     const exists = this.#keys[unique] ? true : false;
     if (!exists) {
-      this.ammendList(unique);
+      this.#ammendList(unique);
       return unique;
     } else {
-      const unicode = this.unicodeKey(unique) * ++this.#keys[unique].count;
-      const modifiedRepeatKey = unique + '#' + this.toHex(unicode);
+      const unicode = this.#unicodeKey(unique) * ++this.#keys[unique].count;
+      const modifiedRepeatKey = unique + '#' + this.#toHex(unicode);
 
       this.#keys[unique].instances.push(modifiedRepeatKey);
       return modifiedRepeatKey; 

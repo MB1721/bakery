@@ -13,8 +13,6 @@ export default function Layout({ pages, linkClassName }) {
       </li>
     );
   });
-
-  console.log(keyList.size);
   
   return (
     <>
