@@ -1,11 +1,10 @@
 export default class KeyList {
-  #keys = {};
+  #keys = {numKeys: 0};
   constructor(newList = []) {
-    this.#keys.numKeys = 0;
     newList.forEach(definedKey => this.ammendList(definedKey));
   }
 
-  get keys() {
+  get list() {
     return this.#keys;
   }
 

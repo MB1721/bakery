@@ -4,7 +4,7 @@ import './Layout.css';
 import KeyList from '../../assets/scripts/key-list';
 
 export default function Layout({ pages, linkClassName }) {
-  let keyList = new KeyList();
+  const keyList = new KeyList();
   
   const linkComponents = pages.map(page => {
     return (
@@ -13,6 +13,8 @@ export default function Layout({ pages, linkClassName }) {
       </li>
     );
   });
+
+  console.log(keyList.size);
   
   return (
     <>
