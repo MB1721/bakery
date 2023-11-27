@@ -1,8 +1,6 @@
 export default class KeyList {
-  #keys;
-  #numKeys;
+  #keys = {};
   constructor(newList = []) {
-    this.#keys = {};
     this.#keys.numKeys = 0;
     newList.forEach(definedKey => this.ammendList(definedKey));
   }
@@ -12,7 +10,7 @@ export default class KeyList {
   }
 
   get size() {
-    return this.#numKeys;
+    return this.#keys.numKeys;
   }
 
   ammendList(newKey) {
