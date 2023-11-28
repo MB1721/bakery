@@ -1,11 +1,11 @@
 /*
 Style Rule Order:
-1. position
-2. display
-3. box-sizing
-4. width and height
-5. max-width/height
-6. additional display properties
+1. box-sizing
+2. position
+3. display
+4. additional display properties
+5. width and height
+6. max-width/height
 7. box module styles outside in
 8. text styles
 9. transformations
