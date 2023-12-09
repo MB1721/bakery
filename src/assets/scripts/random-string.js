@@ -6,7 +6,6 @@ export default function randomString(length) {
       const maxDigit = chBit === 1 ? 7 : 14; // first digit max is 7, second is e
       const minDigit = chBit === 1 ? 2 : 1; // first digit min is 2, second is 1
       let randomHexDigit = Math.floor(Math.random() * (maxDigit + 1)); // int from 0 - 14 (word characters)
-      console.log(randomHexDigit)
       if (randomHexDigit < minDigit) randomHexDigit += minDigit; // set digit to min if below min
       
       randomHexDigit = randomHexDigit.toString() // convert to string
@@ -30,8 +29,7 @@ export default function randomString(length) {
       }
       hexCharArr += randomHexDigit;
     }
-    console.log(`${hexCharArr} => ${String.fromCharCode(Number(hexCharArr))}`); 
-    string += String.fromCharCode(Number(hexCharArr));
+    string += String.fromCharCode(Number(hexCharArr)); // add char to string
   }
   return string;
 }
