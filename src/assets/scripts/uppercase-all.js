@@ -18,11 +18,14 @@ export default function upperCaseAll(str) {
   // test all regular expressions
   let transformed = false;
   regex.forEach((obj) => {
-    console.log(`testing ${newStr} against`, obj);
+    // console.log(`testing ${newStr} against`, obj);
     const { pattern, replacement } = obj;
     if (pattern.test(newStr) && !transformed) {
+      /*
+      // display matches
       const matches = newStr.match(pattern);
       console.log(matches);
+      */
       newStr = newStr.replaceAll(pattern, replacement);
       transformed = true;
     }
