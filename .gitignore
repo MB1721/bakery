@@ -38,3 +38,7 @@ Thumbs.db
 
 # vs code
 .vscode
+
+# dependencies
+node_modules
+package-lock.json
