@@ -6,20 +6,20 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
   entry: {
-    index: './src/index.tsx',
+    index: path.resolve(__dirname, 'src/index.tsx'),
   },
   plugins: [
     new HtmlWebpackPlugin({ // should be first, as it is depended on by other integrated plugins
       title: 'App Boilerplate',
       filename: 'index.html',
-      template: './src/assets/html-templates/index.html',
+      template: path.resolve(__dirname, 'src/assets/html-templates/index.html'),
       // favicon: '/dist/assets/images/favicons', 
       inject: true, // inject all assets into template; Position– head or body– depends on scriptLoading
       scriptLoading: 'defer' // choose how scripts are injected into the html {'blocking'|'defer'|'module'}
     }),
     new MiniCssExtractPlugin(),
     new FaviconsWebpackPlugin({
-      logo: './src/assets/images/logos/mb-logo.svg', // source image to generate icon from
+      logo: path.resolve(__dirname, 'src/assets/images/logos/mb-logo.svg'), // source image to generate icon from
       inject: true, // inject links/metadata into HtmlWebpackPlugin(s)
       // outputPath: 'assets', // directory to output the assets relative to the webpack output dir.
       prefix: 'assets/images/favicons/', // prefix path for generated assets
@@ -47,7 +47,10 @@ module.exports = {
     rules: [ 
       {
         test: /\.s?[ac]ss$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [
+          MiniCssExtractPlugin.loader,
+          path.resolve(__dirname, 'node_modules/css-loader'),
+          path.resolve(__dirname, 'node_modules/sass-loader')],
       },
       {
         test: /.(jpg|jpeg|png|svg|gif)$/i,
@@ -59,17 +62,17 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: path.resolve(__dirname, 'node_modules/ts-loader'),
         exclude: /node_modules/,
       },
       {
         test: /\.(?:js|mjs|cjs)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: path.resolve(__dirname, 'node_modules/babel-loader'),
           options: {
             presets: [
-              ['@babel/preset-env', { targets: "defaults" }]
+              [path.resolve(__dirname, 'node_modules/@babel/preset-env'), { targets: "defaults" }]
             ],
             cacheDirectory: true,
           }
@@ -78,13 +81,14 @@ module.exports = {
     ]
   },
   resolve: {
-    plugins: [new TsconfigPathsPlugin()], // create resolve alias entries from the tsconfig.json "paths" option
+    plugins: [new TsconfigPathsPlugin({ configFile: path.resolve(__dirname, 'tsconfig.json') })], // create resolve alias entries from the tsconfig.json "paths" option
     extensions: ['.tsx', '.ts', '.js', '.jsx'], // omit file extensions in import statements
   },
   output: {
     filename: '[name].[contenthash].bundle.js',
     chunkFilename: '[name].[id].chunk.js', // determines the name of dynamic chunk files
     path: path.resolve(__dirname, 'dist'),
+    publicPath: path.resolve(__dirname, 'dist/assets'),
     clean: true,
   },
   optimization: {
