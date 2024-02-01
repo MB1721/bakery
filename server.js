@@ -1,5 +1,5 @@
-const env = require('dotenv');
-env.config();
+const dotenv = require('dotenv');
+dotenv.config();
 const express = require('express');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
@@ -20,6 +20,8 @@ app.get('/', (req, res, next) => {
   res.send('Hello World');
 });
 
-PORT = process.env.PORT || 5670;
+// configure host variables
+const env = process.env;
+const { PORT: port = 5670, HOST: host = 'localhost/' } = env;
 
-app.listen(PORT, () => console.log(`App listening on port: ${PORT}!\n`));
+app.listen(port, () => console.log(`App listening on http://${host}:${port}\n`));
