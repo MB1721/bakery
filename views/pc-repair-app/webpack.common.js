@@ -85,7 +85,7 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js', '.jsx'], // omit file extensions in import statements
   },
   output: {
-    filename: '[name].[contenthash].bundle.js',
+    filename: (pathData, assetInfo) => 'scripts/[name].[contenthash].bundle.js',
     chunkFilename: '[name].[id].chunk.js', // determines the name of dynamic chunk files
     path: path.resolve(__dirname, 'dist'),
     publicPath: path.resolve(__dirname, 'dist/assets'),

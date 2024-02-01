@@ -7,6 +7,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const app = express();
 const config = require('./views/pc-repair-app/webpack.dev.js');
 const compiler = webpack(config);
+const path = require('path');
 
 // Tell express to use the webpack-dev-middleware and use the webpack.config.js
 // configuration file as a base.
@@ -16,8 +17,12 @@ app.use(
   })
 );
 
+app.use(express.static(path.resolve(__dirname, 'views/pc-repair-app/dist')));
+
 app.get('/', (req, res, next) => {
-  res.send('Hello World');
+  res.sendFile('./views/pc-repair-app/dist/index.html', {
+    root: __dirname
+  });
 });
 
 // configure host variables
