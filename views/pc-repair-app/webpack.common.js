@@ -4,6 +4,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // extracts css
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
+const imgRegex = /.(jpg|jpeg|png|svg|gif)$/i;
+const fontRegex = /\.(woff|woff2|eot|ttf|otf)$/i;
+
 module.exports = {
   entry: {
     index: path.resolve(__dirname, 'src/index.tsx'),
@@ -53,11 +56,11 @@ module.exports = {
           path.resolve(__dirname, 'node_modules/sass-loader')],
       },
       {
-        test: /.(jpg|jpeg|png|svg|gif)$/i,
+        test: imgRegex,
         type: 'asset/resource',
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        test: fontRegex,
         type: 'asset/resource',
       },
       {
@@ -85,10 +88,19 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js', '.jsx'], // omit file extensions in import statements
   },
   output: {
+    publicPath: '/dist/', // 
     filename: (pathData, assetInfo) => 'assets/scripts/[name].[contenthash].bundle.js',
+    assetModuleFilename: (pathData) => {
+      const ext = pathData.filename.match(/(\.\w+)$/g)[0];
+      let path = 'assets/';
+
+      if (imgRegex.test(ext)) path += 'images/';
+      else if (fontRegex.test(ext)) path += 'fonts/';
+      
+      return path += '[hash][ext][query]';
+    },
     chunkFilename: '[name].[id].chunk.js', // determines the name of dynamic chunk files
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: path.resolve(__dirname, 'dist/assets'),
+    path: path.resolve(__dirname, 'dist'), // filesystem of the machine
     clean: true,
   },
   optimization: {

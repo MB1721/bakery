@@ -1,27 +1,37 @@
-const dotenv = require('dotenv');
-dotenv.config();
+const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
+const dotenv = require('dotenv');
+dotenv.config();
 
+// set up application-level middleware
 const app = express();
-const config = require('./views/pc-repair-app/webpack.dev.js');
-const compiler = webpack(config);
-const path = require('path');
 
-// Tell express to use the webpack-dev-middleware and use the webpack.config.js
-// configuration file as a base.
+// set up webpack
+const webpackConfig = require('./views/pc-repair-app/webpack.dev.js');
+const compiler = webpack(webpackConfig);
+const publicPath = webpackConfig.output.publicPath;
+
 app.use(
   webpackDevMiddleware(compiler, {
-    publicPath: config.output.publicPath,
+    publicPath: publicPath,
   })
 );
 
-app.use(express.static(path.resolve(__dirname, 'views/pc-repair-app/dist')));
+app.use(express.static(publicPath));
 
+// configure main website routes
 app.get('/', (req, res, next) => {
-  res.sendFile('./views/pc-repair-app/dist/index.html', {
-    root: __dirname
+  res.send('Hello World');
+});
+
+// configure repair app routes
+const repairAppDir = path.resolve(__dirname, 'views/pc-repair-app/');
+
+app.get('/pc-repair-clinic', (req, res, next) => {
+  res.sendFile('index.html', {
+    root: path.resolve(repairAppDir, 'dist/')
   });
 });
 

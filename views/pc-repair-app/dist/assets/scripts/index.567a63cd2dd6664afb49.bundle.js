@@ -322,7 +322,7 @@ eval("var map = {\n\t\"./About.js\": 384,\n\t\"./Contact.js\": 24,\n\t\"./Error4
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"c970763858d57f0f07a1.jpg\";\n\n//# sourceURL=webpack://pc-repair-app/./src/assets/images/sample/cow.jpg?");
+eval("module.exports = __webpack_require__.p + \"assets/images/c970763858d57f0f07a1.jpg\";\n\n//# sourceURL=webpack://pc-repair-app/./src/assets/images/sample/cow.jpg?");
 
 /***/ })
 
