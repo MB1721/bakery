@@ -17,7 +17,7 @@ module.exports = {
       filename: 'index.html',
       template: path.resolve(__dirname, 'src/assets/html-templates/index.html'),
       // favicon: '/dist/assets/images/favicons', 
-      inject: true, // inject all assets into template; Position– head or body– depends on scriptLoading
+      inject: true, // inject all assets into template; Position (head or body) depends on scriptLoading
       scriptLoading: 'defer' // choose how scripts are injected into the html {'blocking'|'defer'|'module'}
     }),
     new MiniCssExtractPlugin(),
@@ -88,8 +88,8 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js', '.jsx'], // omit file extensions in import statements
   },
   output: {
-    publicPath: '/dist/', // 
-    filename: (pathData, assetInfo) => 'assets/scripts/[name].[contenthash].bundle.js',
+    publicPath: path.resolve(__dirname, '/'), // path for static assets
+    filename: 'assets/scripts/[name].[contenthash].bundle.js',
     assetModuleFilename: (pathData) => {
       const ext = pathData.filename.match(/(\.\w+)$/g)[0];
       let path = 'assets/';
