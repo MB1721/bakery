@@ -47,4 +47,4 @@ package-lock.json
 .env
 
 # view distributions
-views/*/dist/*
+views/*/dist/
