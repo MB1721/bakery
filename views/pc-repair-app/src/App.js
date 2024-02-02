@@ -18,10 +18,14 @@ export default function App() {
   });
   pages.splice(pages.indexOf('error404'), 1);
 
+  const appRoute = "/pc-repair-clinic/" ;
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout pages={pages} linkClassName="pageLink"/>}>
+        <Route 
+          path={appRoute}
+          element={<Layout pages={pages} linkClassName="pageLink" appRoute={appRoute}/>}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
