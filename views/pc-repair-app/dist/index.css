@@ -103,14 +103,14 @@ img, svg, video {
   \***************************************************************************************************************************/
 @font-face {
   font-family: "Inter";
-  src: url("/Users/masonbennett/Dropbox/My%20Mac%20(Mason%E2%80%99s%20MacBook%20Air)/Desktop/Programming/programs/github/NCC-Computer-Club-Website/development-resources/app-boilerplate/views/pc-repair-appassets/fonts/9ca9ba81e9dcaa12b3a1.ttf");
+  src: url(/assets/fonts/9ca9ba81e9dcaa12b3a1.ttf);
   font-weight: 400;
 }
 body {
   min-height: 100vh;
   font-size: 1.6rem;
   font-family: "Inter";
-  background-image: url("/Users/masonbennett/Dropbox/My%20Mac%20(Mason%E2%80%99s%20MacBook%20Air)/Desktop/Programming/programs/github/NCC-Computer-Club-Website/development-resources/app-boilerplate/views/pc-repair-appassets/images/d52ceb142f9f52c1ca36.jpg");
+  background-image: url(/assets/images/d52ceb142f9f52c1ca36.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: contain;

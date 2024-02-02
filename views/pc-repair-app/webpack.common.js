@@ -84,8 +84,9 @@ module.exports = {
     ]
   },
   resolve: {
-    plugins: [new TsconfigPathsPlugin({ configFile: path.resolve(__dirname, 'tsconfig.json') })], // create resolve alias entries from the tsconfig.json "paths" option
-    extensions: ['.tsx', '.ts', '.js', '.jsx'], // omit file extensions in import statements
+    // create resolve alias entries from the tsconfig.json "paths" option
+    plugins: [new TsconfigPathsPlugin({ configFile: path.resolve(__dirname, 'tsconfig.json') })], 
+    extensions: ['.tsx', '.ts', '.js', '.jsx'], // omit file extensions on import statements
   },
   output: {
     publicPath: path.resolve(__dirname, '/'), // path for static assets

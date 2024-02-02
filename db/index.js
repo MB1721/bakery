@@ -5,8 +5,8 @@ const env = process.env;
 
 const client = mysql.createConnection({
   host     : env.HOST,
-  user     : env.USERNAME,
-  password : env.PASSWORD,
+  user     : env.DB_USER,
+  password : env.DB_PASSWORD,
   database : 'my_db'
 });
  
