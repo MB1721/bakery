@@ -29,7 +29,6 @@ module.exports = {
       // generated icon depends on the webpack mode:
       // development-> use a light favicons build.
       // production-> use a full webapp favicons build.
-      mode: 'auto', 
       favicons: {
         developerURL: null, // prevent retrieving from the nearest package.json
         background: '#bebebeff',

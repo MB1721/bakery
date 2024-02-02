@@ -6,9 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -r dist/*",
-    "build": "npm run clean ; webpack --mode=development --config webpack.common.js",
-    "watch": "npm run clean ; webpack --mode=development --config webpack.common.js --watch",
-    "dev": "npm run clean ; webpack serve --open --config webpack.dev.js",
+    "build": "npm run clean ; webpack --config webpack.common.js",
+    "dev": "npm run clean ; webpack --config webpack.dev.js",
     "prod": "webpack --config webpack.prod.js"
   },
   "keywords": [],
@@ -41,7 +40,6 @@
     "webpack-merge": "^5.10.0"
   },
   "devDependencies": {
-    "webpack-bundle-analyzer": "^4.10.1",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-bundle-analyzer": "^4.10.1"
   }
 }

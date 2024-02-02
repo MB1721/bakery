@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "(cd views/pc-repair-app && npm run build) && nodemon server.js"
+    "dev": "(cd views/pc-repair-app && npm run dev) && nodemon server.js"
   },
   "keywords": [],
   "author": "",
