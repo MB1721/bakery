@@ -15,14 +15,13 @@ module.exports = {
     new HtmlWebpackPlugin({ // should be first, as it is depended on by other integrated plugins
       title: 'App Boilerplate',
       filename: 'index.html',
-      template: path.resolve(__dirname, 'src/assets/html-templates/index.html'),
-      // favicon: '/dist/assets/images/favicons', 
+      template: path.resolve(__dirname, 'src/assets/html-templates/index.html'), 
       inject: true, // inject all assets into template; Position (head or body) depends on scriptLoading
       scriptLoading: 'defer' // choose how scripts are injected into the html {'blocking'|'defer'|'module'}
     }),
     new MiniCssExtractPlugin(),
     new FaviconsWebpackPlugin({
-      logo: path.resolve(__dirname, 'src/assets/images/logos/mb-logo.svg'), // source image to generate icon from
+      logo: path.resolve(__dirname, '../../public/images/logos/mb-logo.svg'), // source image to generate icon from
       inject: true, // inject links/metadata into HtmlWebpackPlugin(s)
       // outputPath: 'assets', // directory to output the assets relative to the webpack output dir.
       prefix: 'assets/images/favicons/', // prefix path for generated assets
