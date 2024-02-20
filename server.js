@@ -3,11 +3,11 @@ const express = require('express');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const dotenv = require('dotenv');
-dotenv.config();
 
 // set up application-level middleware
 const app = express();
 
+// configure deveopment or production environment
 if (process.argv[2] === 'development') { // use webpack development middleware
   const webpackConfig = require('./views/pc-repair-app/webpack.dev.js');
   const compiler = webpack(webpackConfig);
@@ -17,7 +17,7 @@ if (process.argv[2] === 'development') { // use webpack development middleware
       publicPath: publicPath,
     })
   );
-} 
+} else if (process.argv[2] === 'production') dotenv.config();
 
 // require routers
 const { pcRepairRouter } = require('./routes/index.js');
