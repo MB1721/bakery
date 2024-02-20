@@ -17,15 +17,14 @@ if (process.argv[2] === 'development') { // use webpack development middleware
       publicPath: publicPath,
     })
   );
-} else if (process.argv[2] === 'production') {
+} 
 
-  // require routers
-  const { pcRepairRouter } = require('./routes/index.js');
+// require routers
+const { pcRepairRouter } = require('./routes/index.js');
 
-  // set up pcRepairRouter 
-  app.use(express.static(pcRepairRouter.static));
-  app.use('/pc-repair-clinic', pcRepairRouter.router);
-}
+// set up pcRepairRouter 
+app.use(express.static(pcRepairRouter.static));
+app.use('/pc-repair-clinic', pcRepairRouter.router);
 
 // configure host variables
 const { PORT: port = 5670, HOST: host = 'localhost' } = process.env;
