@@ -1,5 +1,5 @@
-const pcRepairRouter = require('./pc-repair-clinic');
+const siteRouter = require('./site');
 
 module.exports = {
-  pcRepairRouter
+  siteRouter
 };

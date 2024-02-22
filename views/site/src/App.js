@@ -18,7 +18,7 @@ export default function App() {
   });
   pages.splice(pages.indexOf('error404'), 1);
 
-  const appRoute = "/pc-repair-clinic/" ;
+  const appRoute = "/site/";
 
   return (
     <BrowserRouter>
