@@ -51,7 +51,8 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           path.resolve(__dirname, 'node_modules/css-loader'),
-          path.resolve(__dirname, 'node_modules/sass-loader')],
+          path.resolve(__dirname, 'node_modules/sass-loader')
+        ],
       },
       {
         test: imgRegex,
