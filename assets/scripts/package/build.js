@@ -1,5 +1,5 @@
 const { exec } = require('child_process');
-const getViews = require('./get-views');
+const getViews = require('./get');
 
 async function buildViews() {
   const views = await getViews();

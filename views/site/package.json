@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm -r dist/*",
+    "clean": "node ../../assets/scripts/package/clean-view.js",
     "build": "npm run clean ; webpack --config webpack.common.js",
     "dev": "npm run clean ; webpack --config webpack.dev.js",
     "prod": "npm run clean ; webpack --config webpack.prod.js"
