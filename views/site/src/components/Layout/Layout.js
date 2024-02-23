@@ -9,12 +9,8 @@ export default function Layout({ pages }) {
   
   const linkComponents = pages.map(page => {
     return (
-      <li className="nav-item">
-        <Link 
-          to={page} 
-          className="nav-link"
-          key={keyList.generateKey(page)}
-        >
+      <li className="nav-item" key={keyList.generateKey(page)}>
+        <Link to={page} className="nav-link">
           {page.replace(page[0], page[0].toUpperCase())}
         </Link>
       </li>
@@ -36,7 +32,7 @@ export default function Layout({ pages }) {
             aria-expanded="false" 
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="pages">
             <ul className="navbar-nav">
