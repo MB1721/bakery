@@ -16,16 +16,14 @@ export default function App() {
     const { casedFileName } = camelCaseContext(key, ['js', 'ts', 'tsx', 'jsx']);
     pages.push(casedFileName.toLowerCase());
   });
-  pages.splice(pages.indexOf('error404'), 1); // remove error404 from the pages array
-
-  const appRoute = "/site/";
+  
+  const ignorePages = /(home|error404|index)/;
+  pages = pages.filter(page => !ignorePages.test(page)); // remove error404 from the pages array
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route 
-          path={appRoute}
-          element={<Layout pages={pages} linkClassName="pageLink" appRoute={appRoute}/>}>
+        <Route path={"/site/"} element={<Layout pages={pages}/>}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
