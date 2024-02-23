@@ -7,4 +7,8 @@ siteRouter.get('/', (req, res) => {
   res.sendFile('index.html', { root: siteDist });
 });
 
+siteRouter.get('/:page', (req, res) => {
+  res.sendFile('index.html', { root: siteDist }); 
+});
+
 module.exports = { router: siteRouter, static: siteDist };
