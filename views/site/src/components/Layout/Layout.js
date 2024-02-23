@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet, Link } from "react-router-dom";
 import './Layout.css';
-import KeyList from '../../assets/scripts/key-list';
+import KeyList from '../../../../../assets/scripts/view-utils/key-list';
 
 export default function Layout({ pages, linkClassName, appRoute }) {
   const keyList = new KeyList();

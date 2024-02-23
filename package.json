@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "rm-dependencies": "rm -r views/*/node_modules views/*/package-lock.json node_modules package-lock.json",
-    "build": "npm run rm-dependencies ; node assets/scripts/build-views.js && npm i",
-    "compile": "node assets/scripts/compile-views.js",
+    "build": "npm run rm-dependencies ; node assets/scripts/build-scripts/build-views.js && npm i",
+    "compile": "node assets/scripts/build-scripts/compile-views.js",
     "dev": "npm run compile -- dev && nodemon server.js development",
     "start": "npm run compile -- prod && node server.js production"
   },

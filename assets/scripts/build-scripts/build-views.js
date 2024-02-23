@@ -1,7 +1,4 @@
-const fs = require('fs/promises');
-const path = require('path');
 const { exec } = require('child_process');
-const { stdout, stderr } = require('process');
 const getViews = require('./get-views');
 
 async function buildViews() {
