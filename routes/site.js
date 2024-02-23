@@ -1,12 +1,10 @@
 const path = require('path');
 const siteRouter = require('express').Router();
 
-const siteApp = path.resolve(__dirname, '../views/site/dist/');
+const siteDist = path.resolve(__dirname, '../views/site/dist/');
 
 siteRouter.get('/', (req, res) => {
-  res.sendFile('index.html', {
-    root: siteApp
-  });
+  res.sendFile('index.html', { root: siteDist });
 });
 
-module.exports = { router: siteRouter, static: siteApp };
+module.exports = { router: siteRouter, static: siteDist };
