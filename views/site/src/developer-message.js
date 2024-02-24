@@ -31,7 +31,7 @@ export default function developerMessage() {
       steps: [
         'Adjust imports on Ln 6 - 10 to reflect /src/pages/*',
         'Adjust routes on Ln 25 - 29 to reflect /src/pages/*',
-        'Adjust view route on Ln 24 to match view name'
+        'Adjust view route on Ln 26 to match view name'
       ]
     },
     {
