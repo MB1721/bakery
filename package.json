@@ -1,7 +1,7 @@
 {
-  "name": "app-boilerplate",
+  "name": "bakery",
   "version": "1.0.0",
-  "description": "",
+  "description": "sample bakery website for SkillsUSA",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,7 +12,7 @@
     "start": "npm run compile -- prod && node server.js production"
   },
   "keywords": [],
-  "author": "",
+  "author": "Maria & Mason",
   "license": "ISC",
   "dependencies": {
     "@babel/cli": "^7.23.9",
