@@ -6,8 +6,9 @@ import camelCaseContext from '../../../assets/scripts/view-utils/camel-case-cont
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import Error404 from './pages/Error404';
+import Gallery from './pages/Gallery';
 import Terms from './pages/Terms';
+import Error404 from './pages/Error404';
 
 export default function App() {
   let pages = [];
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="terms" element={<Terms />} />
+          <Route path="gallery" element={<Gallery />} />
           <Route path="*" element={<Error404 />} />
         </Route>
       </Routes>
