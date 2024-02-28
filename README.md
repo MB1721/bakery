@@ -1,4 +1,4 @@
-![MB Logo](./assets/images/logo/mb-logo.svg)
+![MB Logo](./assets/images/logo/mb/mb-logo.svg)
 
 # MB Applications
 
