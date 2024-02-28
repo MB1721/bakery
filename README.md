@@ -1,8 +1,6 @@
-![MB Logo](./assets/images/logo/mb/mb-logo.svg)
+![bakery logo](./assets/images/logo/bakery-logo.png)
 
-# MB Applications
-
-This is my personal setup for creating React web applications. The application includes support for React, Typescript, and SASS. It is bundled using Webpack.
+# Bakery Application
 
 ## Licensing
 This project is licensed under the terms of the [MIT license](./LICENSE.txt).
