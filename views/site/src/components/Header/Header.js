@@ -11,11 +11,9 @@ export default function Header({ pages }) {
   let pageCount = 0;
   const linkComponents = pages.map(page => {
     return (
-      <li key={keyList.generateKey(page)} className="nav-item">
-        <Link to={page} className="nav-link" >
-          {page.replace(page[0], page[0].toUpperCase())}
-        </Link>
-      </li>
+      <Link key={keyList.generateKey(page)} to={page} className="nav-link" >
+        {page.replace(page[0], page[0].toUpperCase())}
+      </Link>
     );
   });
 
@@ -29,9 +27,9 @@ export default function Header({ pages }) {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse justify-content-end" id="pages">
-          <ul className="navbar-nav">
+          <nav className="navbar-nav">
             {linkComponents}
-          </ul>
+          </nav>
         </div>
       </div>
     </header>
