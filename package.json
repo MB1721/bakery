@@ -8,7 +8,7 @@
     "rm-dependencies": "node assets/scripts/package/rm-dependencies.js",
     "build": "node assets/scripts/package/build.js",
     "compile": "node assets/scripts/package/compile.js",
-    "dev": "npm run compile -- dev && nodemon server.js development",
+    "dev": "nodemon",
     "start": "npm run compile -- prod && node server.js production"
   },
   "keywords": [],

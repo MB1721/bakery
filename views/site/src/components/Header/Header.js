@@ -21,7 +21,7 @@ export default function Header({ pages }) {
     <nav className="navbar navbar-expand-md bg-primary">
       <div id="pages" className="container-fluid">
         <Link className="navbar-brand" to="/" >
-          <img src={brand} height={50}/>
+          <img src={brand} height={70}/>
         </Link>
         <button 
           className="navbar-toggler" 
