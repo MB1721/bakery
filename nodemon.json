@@ -2,6 +2,5 @@
   "watch": ["*/*"], 
   "ext": "js,ts,jsx,tsx",
   "ignore": ["views/*/dist/", "node_modules/", "views/*/node_modules/"],
-  "exec": "npm run compile -- dev && node server.js development",
-  "delay": 1000
+  "exec": "npm run compile -- dev && node server.js development"
 }
