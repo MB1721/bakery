@@ -1,4 +1,4 @@
-![bakery logo](./assets/images/logo/bakery-logo.png)
+![bakery logo](./assets/images/logo/bakery-logo.svg)
 
 # Bakery Application
 

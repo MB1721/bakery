@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap';
 import './Header.css';
-import brand from '../../../../../assets/images/logo/bakery-logo.png';
+import brand from '../../../../../assets/images/logo/bakery-logo.svg';
 import KeyList from '../../../../../assets/scripts/view-utils/key-list';
 import { Link } from 'react-router-dom';
 
