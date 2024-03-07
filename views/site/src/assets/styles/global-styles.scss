@@ -14,10 +14,15 @@ Style Rule Order:
 */
 
 // Variable overrides first
-$primary: hsl(0, 85%, 23%);
+
+// root
 $enable-shadows: true;
 $prefix: "mb-";
-$success: #7952b3;
+
+// colors
+$primary: hsl(0, 85%, 23%);
+$body-bg: hsl(0, 0%, 94%);
+$success: hsl(264, 39%, 51%);
 
 // Then import Bootstrap
 @import "bootstrap/scss/bootstrap";

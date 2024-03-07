@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap';
-import './Header.css';
+import './Header.scss';
 import brand from '../../../../../assets/images/logo/bakery-logo.svg';
 import KeyList from '../../../../../assets/scripts/view-utils/key-list';
 import { Link } from 'react-router-dom';
@@ -12,7 +12,7 @@ export default function Header({ pages }) {
   const linkComponents = pages.map(page => {
     return (
       <Link key={keyList.generateKey(page)} to={page} className="nav-link" >
-        {page.replace(page[0], page[0].toUpperCase())}
+        <h2>{page.replace(page[0], page[0].toUpperCase())}</h2>
       </Link>
     );
   });
