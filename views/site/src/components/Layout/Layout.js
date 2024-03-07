@@ -21,7 +21,7 @@ export default function Layout({ pages }) {
     <>
       <nav className="navbar navbar-expand-md bg-primary">
         <div id="pages" className="container-fluid">
-          <Link className="navbar-brand" to="/site" >
+          <Link className="navbar-brand" to="/" >
             <img src={brand} height={50}/>
           </Link>
           <button 
