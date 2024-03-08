@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import '@styles/pages/Gallery.css';
 import KeyList from '../../../../assets/scripts/view-utils/key-list';
+import upperCaseAll from '../../../../assets/scripts/view-utils/uppercase-all';
+import camelCaseContext from '../../../../assets/scripts/view-utils/camel-case-context';
 
 export default function Gallery() {
   const [navigation, setNavigation] = useState({
@@ -37,9 +39,16 @@ export default function Gallery() {
       let newPanels = [ ...panels ];
     
       for (const category in carousel) {
+        const src = carousel[category];
         newPanels.push(
-          <div key={panelKeys.generateKey(category)} className={panelCount++ ? "carousel-item" : "carousel-item active"}>
-            <img src={galleryCtx(carousel[category])} className="d-block w-25" />
+          <div 
+            key={panelKeys.generateKey(category)} 
+            className={ panelCount++ ? "carousel-item" : "carousel-item active" }
+          >
+            <img 
+              src={galleryCtx(src)} 
+              className="d-block w-100" 
+              alt={camelCaseContext(src).fileStr} />
           </div>
         );
       }
@@ -56,10 +65,18 @@ export default function Gallery() {
 
   return (
     <div id="gallery">
-      <div id="gallery-categories" className="carousel slide">
+      <div id="gallery-categories" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-inner">
           {navigation.panels}
         </div>
+        <button className="carousel-control-prev" data-bs-target="#gallery-categories" data-bs-slide="prev">
+          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Previous</span>
+        </button>
+        <button className="carousel-control-next" data-bs-target="#gallery-categories" data-bs-slide="next">
+          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Next</span>
+        </button>
       </div>
     </div>
   );
