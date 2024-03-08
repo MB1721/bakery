@@ -17,15 +17,36 @@ Style Rule Order:
 
 // root
 $enable-shadows: true;
-$prefix: "mb-";
+$prefix: 'mb-';
 
 // colors
 $primary: hsl(0, 85%, 23%);
+$body-emphasis-color: hsl(0, 70%, 73%); 
+$navbar-light-hover-color: lighten($body-emphasis-color, 10%);
 $body-bg: hsl(0, 0%, 94%);
 $success: hsl(264, 39%, 51%);
 
 // Then import Bootstrap
-@import "bootstrap/scss/bootstrap";
+@import 'bootstrap/scss/bootstrap';
+
+
+@font-face {
+  font-family: 'Libre Bakerville';
+  font-weight: normal;
+  src: url('@fonts/Libre_Baskerville/LibreBaskerville-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Libre Bakerville';
+  font-weight: bold;
+  src: url('@fonts/Libre_Baskerville/LibreBaskerville-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Libre Bakerville';
+  font-style: italic;
+  src: url('@fonts/Libre_Baskerville/LibreBaskerville-Italic.ttf');
+}
 
 *, *::before, *::after {
   box-sizing: border-box;
