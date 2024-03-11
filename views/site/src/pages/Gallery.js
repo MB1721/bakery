@@ -24,7 +24,7 @@ export default function Gallery() {
       let newObj = { ...prevObj };
       let { gallery, carousel, panels } = newObj;
       
-      // fill gallery categories
+      // fill gallery productGroups
       galleryCtx.keys().forEach(img => {
         // fill product category set
         const category = img.split('/')[1];
@@ -35,26 +35,61 @@ export default function Gallery() {
       Object.keys(gallery).forEach(category => carousel[category] = gallery[category][0]);
       
       const panelKeys = new KeyList();
-      let panelCount = 0;
-      let newPanels = [ ...panels ];
+      const colKeys = new KeyList();
+      let newPanels = [];
+      
+      const groupsPerSlide = 3;
+      const productGroups = Object.entries(carousel); 
+      let groupIdx = 0;
+      let numSlides = Math.ceil(productGroups.length / groupsPerSlide);
     
-      for (const category in carousel) {
-        const src = carousel[category];
-        newPanels.push(
-          <div 
-            key={panelKeys.generateKey(category)} 
-            className={ panelCount++ ? "carousel-item" : "carousel-item active" }
-          >
-            <img 
-              src={galleryCtx(src)} 
-              className="d-block w-100" 
-              alt={camelCaseContext(src).fileStr} />
-          </div>
+      for (numSlides; numSlides >= 1; numSlides--) {
+        // construct columns
+        let cols = [];
+        for (let count = 0; count < groupsPerSlide; count++) {
+          // if another image exits, push next image index into row 
+          if (productGroups[groupIdx]) {
+            const tuple = productGroups[groupIdx++];
+            const productSrc = tuple[1];
+            cols.push(
+              <img
+                key={colKeys.generateKey(productSrc)} 
+                src={galleryCtx(productSrc)} 
+                className='col img-fluid'
+                alt={camelCaseContext(productSrc).fileStr} 
+              />
+            );
+          } else {
+            let blankSpots = groupsPerSlide - count;
+            let repeatIdx = 0;
+            for (blankSpots; blankSpots > 0; blankSpots--) {
+              const repeatSrc = productGroups[repeatIdx++][1];
+              // push slides at the front of the carousel to the back
+              cols.push(
+                <img
+                  key={colKeys.generateKey(repeatSrc)} 
+                  src={galleryCtx(repeatSrc)} 
+                  className='col img-fluid'
+                  alt={camelCaseContext(repeatSrc).fileStr} 
+                />
+              );
+            }
+            break;
+          }
+        }
+
+        let newPanel = (
+          <Carousel.Item key={panelKeys.generateKey('group')} className='container-fluid h-100'>
+            <div className='row h-100'>
+              {cols}
+            </div>
+          </Carousel.Item>
         );
+        
+        newPanels.push(newPanel);
       }
       
       newObj = {...newObj, panels: [...newPanels]};
-      console.log(newObj);
       return newObj;
     });
 
@@ -63,19 +98,9 @@ export default function Gallery() {
 
   return (
     <div id="gallery">
-      <div id="gallery-categories" className="carousel slide" data-bs-ride="carousel">
-        <div className="carousel-inner h-100">
-          {navigation.panels}
-        </div>
-        <button className="carousel-control-prev" data-bs-target="#gallery-categories" data-bs-slide="prev">
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button className="carousel-control-next" data-bs-target="#gallery-categories" data-bs-slide="next">
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Next</span>
-        </button>
-      </div>
+      <Carousel id='gallery-categories' interval={null} slide={false}>
+        {navigation.panels}
+      </Carousel>
     </div>
   );
 }

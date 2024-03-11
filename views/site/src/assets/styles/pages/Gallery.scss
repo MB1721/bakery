@@ -1,5 +1,10 @@
 #gallery-categories {
   height: 75vh;
+  
+  .carousel-inner {
+    height: 100%;
+  }
+  
   .carousel-item > img {
     object-fit: cover;
     object-position: left -500px;
