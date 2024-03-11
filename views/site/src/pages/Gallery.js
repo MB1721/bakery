@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import '@styles/pages/Gallery.css';
+import '@styles/pages/Gallery.scss';
 import KeyList from '../../../../assets/scripts/view-utils/key-list';
-import upperCaseAll from '../../../../assets/scripts/view-utils/uppercase-all';
 import camelCaseContext from '../../../../assets/scripts/view-utils/camel-case-context';
+import Carousel from 'react-bootstrap/Carousel';
 
 export default function Gallery() {
   const [navigation, setNavigation] = useState({
@@ -58,15 +58,13 @@ export default function Gallery() {
       return newObj;
     });
 
-    
-
   }, []);
 
 
   return (
     <div id="gallery">
       <div id="gallery-categories" className="carousel slide" data-bs-ride="carousel">
-        <div className="carousel-inner">
+        <div className="carousel-inner h-100">
           {navigation.panels}
         </div>
         <button className="carousel-control-prev" data-bs-target="#gallery-categories" data-bs-slide="prev">

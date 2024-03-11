@@ -1,0 +1,7 @@
+#gallery-categories {
+  height: 75vh;
+  .carousel-item > img {
+    object-fit: cover;
+    object-position: left -500px;
+  }
+}
