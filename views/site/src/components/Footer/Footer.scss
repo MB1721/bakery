@@ -1,0 +1,22 @@
+.footer {
+  height: 200px;
+  background-color: #FCEFEF;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .footer-logo {
+    h3 { 
+      margin: 0;
+    }
+  }
+
+  .footer-tabs {
+    gap: 10%;
+  }
+
+  .footer-sub {
+    font-size: 0.9em;
+  }
+}

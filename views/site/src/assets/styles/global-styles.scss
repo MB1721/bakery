@@ -21,6 +21,8 @@ $prefix: 'mb-';
 
 // colors
 $primary: hsl(0, 85%, 23%);
+$info: lighten($primary, 5%);
+
 $body-emphasis-color: hsl(0, 70%, 73%); 
 $navbar-light-hover-color: lighten($body-emphasis-color, 10%);
 $body-bg: hsl(0, 0%, 94%);
