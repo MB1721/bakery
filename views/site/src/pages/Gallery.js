@@ -3,6 +3,7 @@ import '@styles/pages/Gallery.scss';
 import KeyList from '../../../../assets/scripts/view-utils/key-list';
 import camelCaseContext from '../../../../assets/scripts/view-utils/camel-case-context';
 import Carousel from 'react-bootstrap/Carousel';
+import GalleryPanel from '../components/GalleryPanel/GalleryPanel';
 
 export default function Gallery() {
   const [navigation, setNavigation] = useState({
@@ -54,11 +55,11 @@ export default function Gallery() {
             const tuple = productImgs[imgIdx++];
             const productSrc = tuple[1];
             cols.push(
-              <img
+              <GalleryPanel 
                 key={colKeys.generateKey(productSrc)} 
-                src={galleryCtx(productSrc)} 
-                className='col img-fluid p-0' style={{width: `${imgSize}%`}}
-                alt={camelCaseContext(productSrc).fileStr} 
+                context={galleryCtx} 
+                src={productSrc} 
+                size={imgSize} 
               />
             );
           } else {
@@ -68,11 +69,11 @@ export default function Gallery() {
               const repeatSrc = productImgs[repeatIdx++][1];
               // push slides at the front of the carousel to the back
               cols.push(
-                <img
+                <GalleryPanel 
                   key={colKeys.generateKey(repeatSrc)} 
-                  src={galleryCtx(repeatSrc)} 
-                  className='col img-fluid p-0' style={{width: `${imgSize}%`}}
-                  alt={camelCaseContext(repeatSrc).fileStr} 
+                  context={galleryCtx} 
+                  src={repeatSrc} 
+                  size={imgSize} 
                 />
               );
             }
